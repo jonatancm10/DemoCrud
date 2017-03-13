@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html ng-app="MainApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejemplo MEAN SONGS</title>
+	<!-- Cargamos bootstrap -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<!-- Cargamos angular -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<!-- Cargamos el javascript de angular -->
+	<script src="core.js"></script>
+
+</head>
+<body ng-controller="mainController">
+	<div class="container">
+
+		<div class="jumbotron text-center" ng-prueba>
+			<h1>Número de Canciones: <span class="label label-success">{{ canciones.length }}</span></h1>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-1">
+				<table class="table table-striped">
+					<tr class="info">
+						<td>Título</td>
+						<td>Autor</td>
+						<td>Año</td>
+            <td>Calificación</td>
+					</tr>
+					<tr ng-repeat="cancion in canciones" ng-click="selectCancion(cancion)">
+						<td>{{ cancion.titulo }}</td>
+						<td>{{ cancion.autor }}</td>
+						<td>{{ cancion.año }}</td>
+            <td>{{ cancion.calificacion }}</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-4 col-sm-offset-1 text-center">
+				<form name="myForm">
+					<div class="form-group">
+						<input type="text" class="form-control input-lg text-center" placeholder="Título" ng-model="newCancion.titulo" required>
+						<br>
+						<input type="text" class="form-control input-lg text-center" placeholder="Autor" ng-model="newCancion.autor" required>
+						<br>
+						<input type="text" class="form-control input-lg text-center" placeholder="Año" ng-model="newCancion.año" required>
+            <br>
+						<input type="text" class="form-control input-lg text-center" placeholder="Calificación" ng-model="newCancion.calificacion" required>
+					</div>
+					</div>
+
+					<!-- Acciones que podemos realizar en el formulario -->
+					<button type="submit" class="btn btn-success btn-lg" ng-click="registrarCancion()" ng-disabled="myForm.$invalid || selected">Registrar</button>
+					<button type="submit" class="btn btn-warning btn-lg" ng-click="modificarCancion(newCancion)" ng-disabled="!newCancion.titulo || !newCancion.autor || !newCancion.año || !newCancion.calificacion || !selected">Modificar</button>
+					<button type="submit" class="btn btn-danger btn-lg" ng-click="borrarCancion(newCancion)" ng-disabled="!newCancion.titulo || !newCancion.autor || !newCancion.año || !newCancion.calificacion || !selected">Borrar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
