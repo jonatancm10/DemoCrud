@@ -12,6 +12,7 @@
 	<div class="container">
 
 		<div class="jumbotron text-center" ng-prueba>
+      <h1>PLAYLIST <span class="label label-success"></span></h1>
 			<h1>Número de Canciones: <span class="label label-success">{{ canciones.length }}</span></h1>
 		</div>
 
@@ -43,12 +44,12 @@
             <br>
 						<input type="text" class="form-control input-lg text-center" placeholder="Calificación" ng-model="newCancion.calificacion" required>
 					</div>
-					</div>
-
-					<!-- Acciones que podemos realizar en el formulario -->
-					<button type="submit" class="btn btn-success btn-lg" ng-click="registrarCancion()" ng-disabled="myForm.$invalid || selected">Registrar</button>
+          <button type="submit" class="btn btn-success btn-lg" ng-click="registrarCancion()" ng-disabled="myForm.$invalid || selected">Registrar</button>
 					<button type="submit" class="btn btn-warning btn-lg" ng-click="modificarCancion(newCancion)" ng-disabled="!newCancion.titulo || !newCancion.autor || !newCancion.year || !newCancion.calificacion || !selected">Modificar</button>
 					<button type="submit" class="btn btn-danger btn-lg" ng-click="borrarCancion(newCancion)" ng-disabled="!newCancion.titulo || !newCancion.autor || !newCancion.year || !newCancion.calificacion || !selected">Borrar</button>
+					</div>
+					<!-- Acciones que podemos realizar en el formulario -->
+
 				</form>
 			</div>
 		</div>
