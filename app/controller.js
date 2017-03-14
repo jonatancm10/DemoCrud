@@ -16,7 +16,7 @@ exports.setCanciones = function(req, res) {
 
 		// Creo el objeto Persona
 		Cancion.create(
-			{titulo : req.body.titulo, autor: req.body.autor, año: req.body.año, calificacion: req.body.calificacion },
+			{titulo : req.body.titulo, autor: req.body.autor, year: req.body.year, calificacion: req.body.calificacion },
 			function(err, cancion) {
 				if (err)
 					res.send(err);
@@ -33,7 +33,7 @@ exports.setCanciones = function(req, res) {
 // Modificamos un objeto Persona de la base de datos
 exports.updateCancion = function(req, res){
 	Cancion.update( {_id : req.params.cancion_id},
-					{$set:{titulo : req.body.titulo, autor: req.body.autor, año: req.body.año, calificacion: req.body.calificacion}},
+					{$set:{titulo : req.body.titulo, autor: req.body.autor, year: req.body.year, calificacion: req.body.calificacion}},
 					function(err, cancion) {
 						if (err)
 							res.send(err);
